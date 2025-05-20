@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora simples</title>
+</head>
+<body>
+    <h2>Calculadora com operador</h2>
+
+    <input id="campo1" type="number" placeholder="Valor 1"><br><br>
+    <input id="operador" type="text" placeholder="+  -  *  /" maxlength="1"><br><br>
+    <input id="campo3" type="number" placeholder="Valor 2"><br><br>
+
+    <button onclick="executar()">Calcular</button>
+
+    <p id="resultado">Resultado: </p>
+
+    <script>
+        function calcular(a, op, b) {
+            switch(op) {
+                case '+': return a + b;
+                case '-': return a - b;
+                case '*': return a * b;
+                case '/': return b !== 0 ? a / b : 'Erro: divisão por zero';
+                default: return 'Operador inválido';
+            }
+        }
+
+        function mostrarResultado(valor) {
+            document.getElementById("resultado").innerText = "Resultado: " + valor;
+        }
+
+        function executar() {
+            const a = Number(document.getElementById("campo1").value);
+            const op = document.getElementById("operador").value;
+            const b = Number(document.getElementById("campo3").value);
+
+            const resultado = calcular(a, op, b);
+            mostrarResultado(resultado);
+        }
+    </script>
+</body>
+</html>
