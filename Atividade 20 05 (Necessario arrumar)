@@ -1,0 +1,61 @@
+colocar um reset e fazer com que caso escreva um numero no 1 e 3 espaço deve voltar um erro chamado "digite um numero"
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Atividade 20/05</title>
+</head>
+<body>
+    <h2>Calculadora</h2>
+
+    <input id="campo1" type="text" placeholder="Valor 1"><br><br>
+    <input id="operador" type="text" placeholder="+  -  *  /" maxlength="1"><br><br>
+    <input id="campo3" type="text" placeholder="Valor 2"><br><br>
+
+    <button onclick="executar()">Calcular</button>
+
+    <h3 id="resultado">Resultado: </h3>
+
+    <button type="button" onclick="ResetarValores()">Clear</button>
+
+    <script>
+        function calcular(a, op, b) {
+            switch(a, op, b ) {
+                case '+': return a + b;
+                case '-': return a - b;
+                case '*': return a * b;
+                case '/': return a / b;
+                default: return 'Operador inválido';
+            }
+        }
+
+        function mostrarResultado(valor) {
+            document.getElementById("resultado").innerText = "Resultado: " + valor;
+        }
+
+        function executar() {
+            const a = Number(document.getElementById("campo1").value);
+            const op = document.getElementById("operador").value;
+            const b = Number(document.getElementById("campo3").value);
+
+            const resultado = calcular(a, op, b);
+            mostrarResultado(resultado);
+        }
+
+        function ResetarValores() {
+            document.getElementById('campo1').value = '';
+            document.getElementById('operador').value = '';
+            document.getElementById('campo3').value = '';
+        }
+
+        
+        function erro(a, b) {
+            if (a, b) {
+            document.getElementById(a).type = 'text'
+            document.getElementById(b).type = 'text'
+            } document.getElementById("resultado").innerText = "Resultado: "
+        }
+
+    </script>
+</body>
+</html>
